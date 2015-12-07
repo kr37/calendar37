@@ -1,0 +1,21 @@
+/* Calendar Styles */
+
+.month-odd { background-color: #f8fff8; }
+
+.month-even { background-color: #ffe; }
+
+.cal37-newmonth { font-weight: 600; }
+
+p.cal37-tail-day { background-color: white; }
+
+span.calprint { text-align: right; font-size: 11px; color: #666; }
+
+.cal37 td.cal37_tail2, 
+.cal37 td.cal37_tail1 { vertical-align: middle; }
+
+@media print {
+	#newNavBar, footer#page_footer { display: none; }
+	#cal37 table.cal37 { table-layout:fixed; width: 100%; word-wrap:break-word; }
+	.cal37 td li { padding: 0px .1em 0px 1.2em; text-indent: -1em; }
+	.cal37_nextprev { display: none; }
+}
