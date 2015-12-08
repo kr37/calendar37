@@ -22,7 +22,7 @@ class Calendar37_CalupdateController extends BaseController
 			switch ($first3) {
 				case "add":
 					if (intval($timestr)!=0 && $event_id>0) {
-						$instance = new Calendar37Record;
+						$instance = new Calendar37_OccurrencesRecord;
 						$instance->timestr = $timestr;
 						$instance->event_id = $event_id;
 						$instance->alt_text = $alt_text;
@@ -38,7 +38,7 @@ class Calendar37_CalupdateController extends BaseController
 					$add++;
 					break;
 				case "del":
-					$instance = new Calendar37Record;
+					$instance = new Calendar37_OccurrencesRecord;
 					if ($instance->deleteByPk($remain)) {
 						$success_del++;
 						$del++;

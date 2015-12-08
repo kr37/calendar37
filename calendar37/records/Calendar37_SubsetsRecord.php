@@ -4,7 +4,7 @@ namespace Craft;
 class Calendar37_SubsetsRecord extends BaseRecord
 {
 	public function getTableName() {
-		return 'calendar37_Subsets';
+		return 'calendar37_subsets';
 	}
 
 	protected function defineAttributes() { 

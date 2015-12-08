@@ -7,7 +7,7 @@ class Calendar37_CalendarOccurrencesFieldService extends BaseApplicationComponen
 	public function eventOccurrencesCount ($eventID) {
 		$query = craft()->db->createCommand();
 		$count = $query->select('count(*)')
-			->from('calendar37 c37')
+			->from('calendar37_occurrences c37')
 			->where("c37.event_id = '$eventID'")
 			->queryScalar();
 		return $count;
@@ -19,7 +19,7 @@ class Calendar37_CalendarOccurrencesFieldService extends BaseApplicationComponen
 		// Get the occurrences of this entry
 		$query = craft()->db->createCommand();
 		$miniCal->occurrence = $query->select('*')
-			->from('calendar37 c37')
+			->from('calendar37_occurrences c37')
 			->where("c37.event_id = '{$miniCal->entry_id}'")
 			->order('dateYmd ASC, timestr ASC')
 			->queryAll();
@@ -171,7 +171,7 @@ class Calendar37_CalendarOccurrencesFieldService extends BaseApplicationComponen
 	public function deleteOccurrence ($occurrence_id) {
 	// ajax Delete of an occurrence -- posted from the ajax miniCalendar on the CP Entries page.
 
-		$instance = new Calendar37Record;
+		$instance = new Calendar37_OccurrencesRecord;
 		if ($instance->deleteByPk($occurrence_id)) {
 			return true; 
 		} else {
@@ -180,7 +180,7 @@ class Calendar37_CalendarOccurrencesFieldService extends BaseApplicationComponen
 	}
 
 
-	public function addOccurrence (Calendar37Record $occurrence) {
+	public function addOccurrence (Calendar37_OccurrencesRecord $occurrence) {
 	// ajax Add of an occurrence -- posted from the ajax miniCalendar on the CP Entries page.
 
 		if (!($occurrence->event_id>0)) return "The event_id of {$occurrence->event_id} is not valid. This looks like a bug.";
@@ -197,7 +197,7 @@ class Calendar37_CalendarOccurrencesFieldService extends BaseApplicationComponen
 	// Part of the reply from an ajax add or delete of an occurrence
 		$query = craft()->db->createCommand();
 		$rs = $query->select('id, dateYmd, timestr, alt_text')
-			->from('calendar37 c37')
+			->from('calendar37_occurrences c37')
 			->where("event_id = '$event_id'") 
 			->andWhere("dateYmd = '$dateYmd'")
 			->order('timestr ASC')
