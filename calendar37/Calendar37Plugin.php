@@ -25,7 +25,7 @@ class Calendar37Plugin extends BasePlugin
 
 	function getDeveloperUrl()
 	{
-		return 'http://calendar37.blogspot.com/';
+		return 'https://github.com/kr37/calendar37';
 	}
 
 
