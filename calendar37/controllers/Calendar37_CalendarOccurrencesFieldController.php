@@ -52,7 +52,7 @@ class Calendar37_CalendarOccurrencesFieldController extends BaseController
 
 		// Get the submitted parameters
 		//-----------------------------
-		$instance = new Calendar37Record;
+		$instance = new Calendar37_OccurrencesRecord;
 		$instance->event_id = craft()->request->getParam( 'entry_id');
 		$instance->dateYmd  = craft()->request->getParam( 'dateYmd');
 		$instance->timestr  = craft()->request->getParam( 'timestr');

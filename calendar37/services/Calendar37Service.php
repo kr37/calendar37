@@ -58,7 +58,7 @@ class Calendar37Service extends BaseApplicationComponent
 		// OK, pull all occurrences from the db
 		$query = craft()->db->createCommand();
 		$cal->occurrence = $query->select('*')
-			->from('calendar37 c37')
+			->from('calendar37_occurrences c37')
 			->where("c37.dateYmd >= '{$cal->actualStartYmd()}'")
 			->andWhere("c37.dateYmd <= '{$cal->actualEndYmd()}'") 
 			->order('dateYmd ASC, timestr ASC')

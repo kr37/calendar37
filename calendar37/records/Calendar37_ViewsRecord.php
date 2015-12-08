@@ -4,7 +4,7 @@ namespace Craft;
 class Calendar37_ViewsRecord extends BaseRecord
 {
 	public function getTableName() {
-		return 'calendar37_Views';
+		return 'calendar37_views';
 	}
 
 	protected function defineAttributes() { 
